@@ -17,6 +17,14 @@ export const routes: Routes = [
       {
         path: 'contact',
         loadComponent: () => import('./domains/contact/contact.component')
+      },
+      {
+        path: 'blog',
+        loadComponent: () => import('./domains/blog/blog.component')
+      },
+      {
+        path: 'timeline',
+        loadComponent: () => import('./domains/timeline/timeline.component')
       }
 
     ]
