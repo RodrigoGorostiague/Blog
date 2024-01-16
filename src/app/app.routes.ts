@@ -15,6 +15,10 @@ export const routes: Routes = [
         loadComponent: () => import('./domains/about/about.component')
       },
       {
+        path: 'about-detail',
+        loadComponent: () => import('./domains/shared/components/about-detail/about-detail.component')
+      },
+      {
         path: 'contact',
         loadComponent: () => import('./domains/contact/contact.component')
       },
