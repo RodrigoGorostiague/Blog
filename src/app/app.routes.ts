@@ -29,6 +29,14 @@ export const routes: Routes = [
       {
         path: 'timeline',
         loadComponent: () => import('./domains/timeline/timeline.component')
+      },
+      {
+        path: 'login',
+        loadComponent: () => import('./domains/login/login.component')
+      },
+      {
+        path: 'singup',
+        loadComponent: () => import('./domains/singup/singup.component')
       }
 
     ]
