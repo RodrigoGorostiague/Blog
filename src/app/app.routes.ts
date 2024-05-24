@@ -23,16 +23,16 @@ export const routes: Routes = [
         loadComponent: () => import('./domains/contact/contact.component')
       },
       {
-        path: 'blog',
-        loadComponent: () => import('./domains/blog/blog.component')
+        path: 'blogs',
+        loadComponent: () => import('./domains/timeline/timeline.component')
+      },
+      {
+        path: 'blog-detail',
+        loadComponent: () => import('./domains/shared/components/blog/blog.component')
       },
       {
         path: 'timeline',
         loadComponent: () => import('./domains/timeline/timeline.component')
-      },
-      {
-        path: 'login',
-        loadComponent: () => import('./domains/login/login.component')
       },
       {
         path: 'singup',
@@ -43,6 +43,7 @@ export const routes: Routes = [
 },
 {
     path: '**',
-    component: LayoutComponent
+    redirectTo: '',
+    pathMatch: 'full'
 }
 ];

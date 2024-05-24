@@ -10,7 +10,7 @@ import { initFlowbite } from 'flowbite';
   template: '<router-outlet />'
 })
 export class AppComponent {
-  title = 'blog';
+  title = 'Citrux-Blog';
   ngOnInit(): void {
     initFlowbite();
   }
