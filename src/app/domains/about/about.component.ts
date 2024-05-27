@@ -1,12 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, AfterViewInit, inject, QueryList, ElementRef, ViewChildren } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { Carousel, CarouselOptions, CarouselItem } from 'flowbite';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [RouterLink],
+  imports: [CommonModule, RouterLinkWithHref, RouterLinkActive],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
