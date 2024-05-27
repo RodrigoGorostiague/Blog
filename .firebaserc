@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "citrux-blog"
+  },
+  "targets": {
+    "citrux-blog": {
+      "hosting": {
+        "blog": [
+          "citrux-blog"
+        ]
+      }
+    }
   }
 }

@@ -1,38 +1,18 @@
-.custom{
-  position: relative;
-  border: solid white;
-  left: 15%;
-  width: 100%;
-  height: auto;
-  mask-image: linear-gradient(
-    black 75%,
-    transparent
-  );
-  filter: drop-shadow(
-    0 0 0.5rem black
-  );
-  filter: grayscale(100%);
+.custom {
+  mask-image: linear-gradient(black 75%, transparent);
+  filter: grayscale(100%) drop-shadow(0 0 0.5rem black);
+  transition: transform 0.5s, filter 0.4s; /* Agregando transición */
+  position: fixed;
+  left: 75%;
+  top: 16%;
+  height: 120%;
+  width: auto;
+  padding: 8px;
 }
 
-.custom:hover{
-  filter: grayscale(0%);
+.custom:hover {
+  transform: scale(1.1); /* Usar transform para escalar */
+  filter: grayscale(0%) ; /* Agregar sombra */
+  cursor: pointer;
 }
 
-img{
-  position: relative;
-  left: 5%;
-  filter: grayscale(100%);
-  mask-image: linear-gradient(
-    black 75%,
-    transparent
-  );
-  filter: drop-shadow(
-    0 0 0.5rem black
-  );
-}
-img:hover{
-  mask-image: linear-gradient(
-    rgb(236, 96, 3) 75%,
-    transparent
-  );
-}
