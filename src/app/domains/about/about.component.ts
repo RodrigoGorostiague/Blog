@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, inject } from '@angular/core';
+import { Component, AfterViewInit, inject, QueryList, ElementRef, ViewChildren } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
 import { Carousel, CarouselOptions, CarouselItem } from 'flowbite';
 
@@ -56,12 +57,59 @@ export default class AboutComponent implements AfterViewInit {
     }
   ]
 
-  ngAfterViewInit() {
-    const carouselElement = document.getElementById('default-carousel');
+  projects = [
+    {
+      title: 'E-Commerce',
+      description: 'E-commerce website with Angular and NestJS',
+      techs: ['../../../assets/icons/LogosAngularIcon.svg', '../../../assets/icons/LogosNestjs.svg', '../../../assets/icons/LogosPostgresql.svg'],
+      link: 'http://algo-ecommerce.herokuapp.com/',
+      images: [
+        '../../../assets/icons/LogosAngularIcon.svg',
+        '../../../assets/icons/LogosApacheSupersetIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosSpringIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+      ]
+    },
+    {
+      title: 'Trello Clone',
+      description: 'Trello Clone with Angular and NestJS',
+      techs: ['../../../assets/icons/LogosAngularIcon.svg', '../../../assets/icons/LogosNestjs.svg', '../../../assets/icons/LogosPostgresql.svg'],
+      link: '',
+      images: [
+        '../../../assets/icons/LogosAngularIcon.svg',
+        '../../../assets/icons/LogosApacheSupersetIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosSpringIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+      ]
+    },
+    {
+      title: 'Dashboards',
+      description: 'Dashboards with Apache Superset',
+      techs: ['../../../assets/icons/LogosApacheSupersetIcon.svg'],
+      link: '',
+      images: [
+        '../../../assets/icons/LogosAngularIcon.svg',
+        '../../../assets/icons/LogosApacheSupersetIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosSpringIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+      ]
+    }
+  ]
 
-    if (carouselElement) {
-      const items: CarouselItem[] = Array.from(carouselElement.querySelectorAll('[data-carousel-item]')).map((item, index) => ({
-        position: index,
+  @ViewChildren('carousel') carousels!: QueryList<ElementRef>;
+
+  ngAfterViewInit() {
+    this.carousels.forEach((carouselElement, index) => {
+      const element = carouselElement.nativeElement;
+
+      const items = Array.from(element.querySelectorAll('[data-carousel-item]')).map((item, idx) => ({
+        position: idx,
         el: item as HTMLElement
       }));
 
@@ -71,8 +119,8 @@ export default class AboutComponent implements AfterViewInit {
         indicators: {
           activeClasses: 'bg-white dark:bg-gray-800',
           inactiveClasses: 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
-          items: Array.from(carouselElement.querySelectorAll('[data-carousel-slide-to]')).map((indicator, index) => ({
-            position: index,
+          items: Array.from(element.querySelectorAll('[data-carousel-slide-to]')).map((indicator, idx) => ({
+            position: idx,
             el: indicator as HTMLElement
           }))
         },
@@ -87,11 +135,11 @@ export default class AboutComponent implements AfterViewInit {
         }
       };
 
-      const carousel = new Carousel(carouselElement, items, options);
+      const carousel = new Carousel(element, items, options);
 
       // Attach event listeners for controls
-      const prevButton = carouselElement.querySelector('[data-carousel-prev]');
-      const nextButton = carouselElement.querySelector('[data-carousel-next]');
+      const prevButton = element.querySelector('[data-carousel-prev]');
+      const nextButton = element.querySelector('[data-carousel-next]');
 
       if (prevButton) {
         prevButton.addEventListener('click', () => carousel.prev());
@@ -100,7 +148,7 @@ export default class AboutComponent implements AfterViewInit {
       if (nextButton) {
         nextButton.addEventListener('click', () => carousel.next());
       }
-    }
+    });
   }
 
   navigateTo(link: string) {
