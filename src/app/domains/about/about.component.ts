@@ -1,20 +1,95 @@
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, inject, QueryList, ElementRef, ViewChildren } from '@angular/core';
+import { Component, AfterViewInit, inject, QueryList, ElementRef, ViewChildren, signal, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RouterLink, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Carousel, CarouselOptions, CarouselItem } from 'flowbite';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterLinkWithHref, RouterLinkActive],
+  imports: [CommonModule, RouterLinkWithHref, RouterLinkActive, TranslateModule],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export default class AboutComponent implements AfterViewInit {
+export default class AboutComponent implements OnInit, AfterViewInit{
+  constructor(){
+    this.loadTraslations();
+    this.translate.onLangChange.subscribe(() => {
+      // Volver a cargar las traducciones dinámicas
+      this.loadTraslations();
+    });
+  }
   router = inject(Router);
+  translate = inject(TranslateService);
+  skills: any = []
+  projects: any = []
 
-  skills = [
+  loadTraslations() {
+    this.translate.get('SKILLS').subscribe((skills) => {
+      this.skills = [{
+        name: skills.ANGULAR.NAME,
+        icon: '../../../assets/icons/LogosAngularIcon.svg',
+        description: skills.ANGULAR.DESCRIPTION,
+        link: 'https://angular.io/'
+      },
+    {
+      name: skills.NESTJS.NAME,
+      icon: '../../../assets/icons/LogosNestjs.svg',
+      description: skills.NESTJS.DESCRIPTION,
+      link: 'https://nestjs.com/'
+    }]
+    });
+
+    this.translate.get('PROJECTS').subscribe((projects) => {
+      this.projects = [{
+        name: projects.ECOMMERCE.TITLE,
+        description: projects.ECOMMERCE.DESCRIPTION,
+        techs: ['../../../assets/icons/LogosAngularIcon.svg', '../../../assets/icons/LogosNestjs.svg', '../../../assets/icons/LogosPostgresql.svg'],
+        link: 'http://algo-ecommerce.herokuapp.com/',
+        images: [
+          '../../../assets/icons/LogosAngularIcon.svg',
+          '../../../assets/icons/LogosApacheSupersetIcon.svg',
+          '../../../assets/icons/LogosNestjs.svg',
+          '../../../assets/icons/LogosSpringIcon.svg',
+          '../../../assets/icons/LogosNestjs.svg',
+          '../../../assets/icons/LogosNestjs.svg',
+        ]
+      },
+    {
+      name: projects.TRELLO_CLONE.TITLE,
+      description: projects.TRELLO_CLONE.DESCRIPTION,
+      techs: ['../../../assets/icons/LogosAngularIcon.svg', '../../../assets/icons/LogosNestjs.svg', '../../../assets/icons/LogosPostgresql.svg'],
+      link: '',
+      images: [
+        '../../../assets/icons/LogosAngularIcon.svg',
+        '../../../assets/icons/LogosApacheSupersetIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosSpringIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+      ]
+    },
+    {
+      name: projects.DASHBOARDS.TITLE,
+      description: projects.DASHBOARDS.DESCRIPTION,
+      techs: ['../../../assets/icons/LogosApacheSupersetIcon.svg'],
+      link: '',
+      images: [
+        '../../../assets/icons/LogosAngularIcon.svg',
+        '../../../assets/icons/LogosApacheSupersetIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosSpringIcon.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+        '../../../assets/icons/LogosNestjs.svg',
+      ]
+    }
+    ];
+    });
+  }
+
+
+  /* skills = [
     {name: 'Angular',
     icon: '../../../assets/icons/LogosAngularIcon.svg',
     description:"Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript. It implements core and optional functionality as a set of TypeScript libraries that you import into your apps.",
@@ -101,9 +176,13 @@ export default class AboutComponent implements AfterViewInit {
         '../../../assets/icons/LogosNestjs.svg',
       ]
     }
-  ]
+  ] */
 
   @ViewChildren('carousel') carousels!: QueryList<ElementRef>;
+
+  ngOnInit(): void {
+    this.loadTraslations();
+  }
 
   ngAfterViewInit() {
     this.carousels.forEach((carouselElement, index) => {

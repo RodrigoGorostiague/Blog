@@ -1,0 +1,53 @@
+{
+  "DESCRIPTION_TITLE": "Application and Project Architecture Description:",
+  "DESCRIPTION_PARAGRAPH1": "We embarked on a fascinating journey building our application from scratch, opting to recycle pieces and create my own server instead of relying on conventional deployment platforms. This choice has allowed me to be involved from start to finish, from selecting the hardware to implementing container architecture and application lifecycle automation.",
+  "BACKEND_TITLE": "Backend with NestJS:",
+  "BACKEND_DESCRIPTION": "Business logic and data handling are centralized in a RESTful API built with NestJS, a development framework for Node.js. This component provides robust and scalable services, implemented in an independent Docker container.",
+  "FRONTEND_TITLE": "Frontend with Angular:",
+  "FRONTEND_DESCRIPTION": "The user interface is developed using Angular, a web application development framework. The frontend application is housed in a separate Docker container to ensure its independence and scalability.",
+  "DATABASE_TITLE": "Data Persistence with PostgreSQL:",
+  "DATABASE_DESCRIPTION": "The application's database is implemented using PostgreSQL, a relational database management system. To ensure data persistence, we have configured an external volume on the host to store PostgreSQL data outside the container.",
+  "FINAL_PARAGRAPH": "This project not only represents the creation of an application but also my dedication to technical excellence and sustainability. The decision to build a server and collaboration with colleagues reflect a commitment to continuous learning and building meaningful technological solutions. I am excited to share this journey where we merge our passion for technological development with environmental responsibility and creative collaboration. Join us as we progress along this exciting path!",
+  "ABOUT_TITLE": "Explore my technical skills. From software development to data analysis, discover how I can add value to your team.",
+
+  "SKILLS": {
+    "ANGULAR": {
+      "NAME": "Angular",
+      "DESCRIPTION": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript. It implements core and optional functionality as a set of TypeScript libraries that you import into your apps."
+    },
+    "NESTJS": {
+      "NAME": "NestJS",
+      "DESCRIPTION": "NestJS is a framework for building efficient, scalable Node.js server-side applications. It uses progressive JavaScript, is built with TypeScript and combines elements of OOP (Object Oriented Programming), FP (Functional Programming), and FRP (Functional Reactive Programming)."
+    },
+    "POSTGRESQL": {
+      "NAME": "PostgreSQL",
+      "DESCRIPTION": "PostgreSQL is a free and open-source relational database management system. It is known for its robustness and reliability, and is widely used in web and mobile applications."
+    },
+    "DOCKER": {
+      "NAME": "Docker",
+      "DESCRIPTION": "Docker is an open-source platform that enables developers to package, ship, and run applications in containers. Containers are lightweight, portable software units that include everything needed to run an application, including libraries, system tools, code, and runtime."
+    },
+    "APACHE_SUPERSET": {
+      "NAME": "Apache Superset",
+      "DESCRIPTION": "Apache Superset is an open-source data visualization platform that allows users to create and share interactive dashboards and data visualizations. Superset is highly customizable and integrates with a variety of data sources, including SQL and NoSQL databases, file systems, and cloud services."
+    },
+    "POSTMAN": {
+      "NAME": "Postman",
+      "DESCRIPTION": "Postman is a collaboration tool for API development. It allows developers to quickly and easily create, share, test, and document APIs. Postman is widely used in software development for testing and debugging APIs and web services."
+    }
+  },
+  "PROJECTS": {
+    "ECOMMERCE": {
+      "TITLE": "E-Commerce",
+      "DESCRIPTION": "E-commerce website with Angular and NestJS"
+    },
+    "TRELLO_CLONE": {
+      "TITLE": "Trello Clone",
+      "DESCRIPTION": "Trello Clone with Angular and NestJS"
+    },
+    "DASHBOARDS": {
+      "TITLE": "Dashboards",
+      "DESCRIPTION": "Dashboards with Apache Superset"
+    }
+  }
+}

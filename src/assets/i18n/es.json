@@ -1,0 +1,53 @@
+{
+  "DESCRIPTION_TITLE": "Descripción de la Arquitectura de la Aplicación y del Proyecto:",
+  "DESCRIPTION_PARAGRAPH1": "Comenzamos un fascinante viaje al construir nuestra aplicación desde cero, decidi reciclar piezas y crear mi propio servidor en lugar de depender de plataformas de despliegue convencionales. Esta elección me ha permitido estar involucrado de principio a fin, desde la selección del hardware hasta la implementación de la arquitectura de contenedores y la automatización del ciclo de vida de la aplicación.",
+  "BACKEND_TITLE": "Backend con NestJS:",
+  "BACKEND_DESCRIPTION": "La lógica de negocio y el manejo de datos están centralizados en una API RESTful construida con NestJS, un framework de desarrollo para Node.js. Este componente proporciona servicios robustos y escalables, implementados en un contenedor Docker independiente.",
+  "FRONTEND_TITLE": "Frontend con Angular:",
+  "FRONTEND_DESCRIPTION": "La interfaz de usuario se desarrolla utilizando Angular, un framework de desarrollo de aplicaciones web. La aplicación frontend se encuentra en un contenedor Docker separado para garantizar su independencia y escalabilidad.",
+  "DATABASE_TITLE": "Persistencia de Datos con PostgreSQL:",
+  "DATABASE_DESCRIPTION": "La base de datos de la aplicación se implementa utilizando PostgreSQL, un sistema de gestión de bases de datos relacional. Para garantizar la persistencia de los datos, hemos configurado un volumen externo en el host para almacenar los datos de PostgreSQL fuera del contenedor.",
+  "FINAL_PARAGRAPH": "Este proyecto no solo representa la creación de una aplicación, sino también mi dedicación a la excelencia técnica y la sostenibilidad. La decisión de construir un servidor y la colaboración con colegas reflejan el compromiso con el aprendizaje continuo y la construcción de soluciones tecnológicas significativas. Estoy emocionado de compartir este viaje en el que fusionamos nuestra pasión por el desarrollo tecnológico con la responsabilidad ambiental y la colaboración creativa. ¡Únete a nosotros mientras avanzamos en este emocionante camino!",
+  "ABOUT_TITLE": "Explora mis habilidades técnicas. Desde desarrollo de software hasta análisis de datos, descubre cómo puedo agregar valor a tu equipo.",
+
+  "SKILLS": {
+    "ANGULAR": {
+      "NAME": "Angular",
+      "DESCRIPTION": "Angular es una plataforma y un framework para construir aplicaciones de una sola página utilizando HTML y TypeScript. Angular está escrito en TypeScript. Implementa funcionalidades básicas y opcionales como un conjunto de bibliotecas de TypeScript que importas en tus aplicaciones."
+    },
+    "NESTJS": {
+      "NAME": "NestJS",
+      "DESCRIPTION": "NestJS es un framework para construir aplicaciones del lado del servidor eficientes y escalables en Node.js. Utiliza JavaScript progresivo, está construido con TypeScript y combina elementos de POO (Programación Orientada a Objetos), FP (Programación Funcional) y FRP (Programación Funcional Reactiva)."
+    },
+    "POSTGRESQL": {
+      "NAME": "PostgreSQL",
+      "DESCRIPTION": "PostgreSQL es un sistema de gestión de bases de datos relacional de código abierto y gratuito. Es conocido por su robustez y confiabilidad, y es ampliamente utilizado en aplicaciones web y móviles."
+    },
+    "DOCKER": {
+      "NAME": "Docker",
+      "DESCRIPTION": "Docker es una plataforma de código abierto que permite a los desarrolladores empaquetar, enviar y ejecutar aplicaciones en contenedores. Los contenedores son unidades de software ligeros y portátiles que incluyen todo lo necesario para ejecutar una aplicación, incluidas bibliotecas, herramientas de sistema, código y tiempo de ejecución."
+    },
+    "APACHE_SUPERSET": {
+      "NAME": "Apache Superset",
+      "DESCRIPTION": "Apache Superset es una plataforma de visualización de datos de código abierto que permite a los usuarios crear y compartir paneles interactivos y visualizaciones de datos. Superset es altamente personalizable y se integra con una variedad de fuentes de datos, incluidas bases de datos SQL y NoSQL, sistemas de archivos y servicios en la nube."
+    },
+    "POSTMAN": {
+      "NAME": "Postman",
+      "DESCRIPTION": "Postman es una herramienta de colaboración para el desarrollo de API. Permite a los desarrolladores crear, compartir, probar y documentar API de forma rápida y sencilla. Postman es ampliamente utilizado en el desarrollo de software para probar y depurar API y servicios web."
+    }
+  },
+  "PROJECTS": {
+    "ECOMMERCE": {
+      "TITLE": "E-Commerce",
+      "DESCRIPTION": "Sitio web de comercio electrónico con Angular y NestJS"
+    },
+    "TRELLO_CLONE": {
+      "TITLE": "Clon de Trello",
+      "DESCRIPTION": "Clon de Trello con Angular y NestJS"
+    },
+    "DASHBOARDS": {
+      "TITLE": "Dashboards",
+      "DESCRIPTION": "Dashboards con Apache Superset"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { CommonModule, UpperCasePipe } from '@angular/common'
 import { Component } from '@angular/core'
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-navbar',
@@ -20,6 +21,11 @@ export class NavbarComponent {
     { name: 'English', value: 'en', icon: '../../../../../assets/flags/CircleFlagsUs.svg' },
   ];
   selectedLenguage = this.lenguages[0];
+
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('es');
+  }
 
   ngOnInit(): void {
     this.themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon')
@@ -67,6 +73,7 @@ export class NavbarComponent {
 
   selectecLenguage(value: string){
     this.selectedLenguage = this.lenguages.find((lenguage) => lenguage.value === value) || this.lenguages[0];
+    this.translate.use(this.selectedLenguage.value);
     this.isDropdownOpen = false;
   }
   toggleDropdown() {
