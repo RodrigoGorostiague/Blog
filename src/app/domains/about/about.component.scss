@@ -3,11 +3,12 @@
   filter: grayscale(100%) drop-shadow(0 0 0.5rem black);
   transition: transform 0.5s, filter 0.4s; /* Agregando transición */
   position: fixed;
-  left: 75%;
+  left: 80%;
   top: 16%;
   height: 120%;
   width: auto;
   padding: 8px;
+  scale: 0.5;
 }
 
 .custom:hover {

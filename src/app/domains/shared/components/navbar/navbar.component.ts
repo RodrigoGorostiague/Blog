@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common'
+import { CommonModule, UpperCasePipe } from '@angular/common'
 import { Component } from '@angular/core'
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router'
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLinkWithHref, RouterLinkActive],
+  imports: [CommonModule, RouterLinkWithHref, RouterLinkActive, UpperCasePipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -13,12 +13,17 @@ export class NavbarComponent {
   themeToggleDarkIcon: HTMLElement | null = null
   themeToggleLightIcon: HTMLElement | null = null
   themeToggleBtn: HTMLElement | null = null
+  isDropdownOpen = false;
+
+  lenguages = [
+    { name: 'Español', value: 'es', icon: '../../../../../assets/flags/CircleFlagsAr.svg' },
+    { name: 'English', value: 'en', icon: '../../../../../assets/flags/CircleFlagsUs.svg' },
+  ];
+  selectedLenguage = this.lenguages[0];
 
   ngOnInit(): void {
     this.themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon')
-    this.themeToggleLightIcon = document.getElementById(
-      'theme-toggle-light-icon'
-    )
+    this.themeToggleLightIcon = document.getElementById(      'theme-toggle-light-icon')
     this.themeToggleBtn = document.getElementById('theme-toggle')
 
     if (
@@ -56,8 +61,16 @@ export class NavbarComponent {
         localStorage.setItem('color-theme', 'dark')
       }
     }
-
     this.themeToggleDarkIcon?.classList.toggle('hidden')
     this.themeToggleLightIcon?.classList.toggle('hidden')
   }
+
+  selectecLenguage(value: string){
+    this.selectedLenguage = this.lenguages.find((lenguage) => lenguage.value === value) || this.lenguages[0];
+    this.isDropdownOpen = false;
+  }
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
 }
